@@ -5,11 +5,11 @@ package net.cackerman.samples.ProducerConsumer;
  */
 public class Consumer implements Runnable {
 
-    private final CircularDBuffer buffer;
+    private final CircularBuffer<Double> buffer;
     private final long iterations;
 
-    public Consumer(CircularDBuffer circularDBuffer, long iterations) {
-        this.buffer = circularDBuffer;
+    public Consumer(CircularBuffer<Double> circularBuffer, long iterations) {
+        this.buffer = circularBuffer;
         this.iterations = iterations;
     }
 

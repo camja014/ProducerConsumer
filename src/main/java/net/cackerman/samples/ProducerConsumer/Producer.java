@@ -7,11 +7,11 @@ import java.util.Random;
  */
 public class Producer implements Runnable {
 
-    private final CircularDBuffer buffer;
+    private final CircularBuffer<Double> buffer;
     private final long iterations;
 
-    Producer(CircularDBuffer circularDBuffer, long iterations) {
-        this.buffer = circularDBuffer;
+    Producer(CircularBuffer<Double> circularBuffer, long iterations) {
+        this.buffer = circularBuffer;
         this.iterations = iterations;
     }
 

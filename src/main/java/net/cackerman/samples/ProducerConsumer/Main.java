@@ -8,13 +8,13 @@ public class Main {
     private static final long numIterations = 10000000; // 10 million iterations
 
     public static void main(String[] argv) {
-        CircularDBuffer circularDBuffer = new CircularDBuffer();
+        CircularBuffer<Double> circularBuffer = new CircularBuffer<>(Double.class);
 
         System.out.println("MAIN: Starting Producer...");
-        Thread producerThread = new Thread(new Producer(circularDBuffer, numIterations));
+        Thread producerThread = new Thread(new Producer(circularBuffer, numIterations));
 
         System.out.println("MAIN: Starting Consumer...");
-        Thread consumerThread = new Thread(new Consumer(circularDBuffer, numIterations));
+        Thread consumerThread = new Thread(new Consumer(circularBuffer, numIterations));
 
         producerThread.start();
         consumerThread.start();

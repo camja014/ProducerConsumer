@@ -1,43 +1,44 @@
 package net.cackerman.samples.ProducerConsumer;
 
+import java.lang.reflect.Array;
 import java.util.NoSuchElementException;
 
 /**
  * Buffer class, implemented as a circular buffer.
  */
-public class CircularDBuffer {
+public class CircularBuffer<T> {
 
     public final int bufferSize;
 
-    double[] data;
+    T[] data;
 
     int start;
     int size;
 
-    public CircularDBuffer() {
+    public CircularBuffer(Class<T> tClass) {
         bufferSize = 1000;
 
         this.start = 0;
         this.size = 0;
 
-        this.data = new double[bufferSize];
+        this.data = (T[]) Array.newInstance(tClass, bufferSize);
     }
 
-    public CircularDBuffer(int bufferSize) {
+    public CircularBuffer(Class<T> tClass, int bufferSize) {
         this.bufferSize = bufferSize;
 
         this.start = 0;
         this.size = 0;
 
-        this.data = new double[this.bufferSize];
+        this.data = (T[]) Array.newInstance(tClass, bufferSize);
     }
 
-    public double get() {
+    public T get() {
         if (isEmpty())
             throw new NoSuchElementException("Buffer is empty");
 
         // retrieve element
-        double d = data[start];
+        T d = data[start];
         start = (start + 1) % bufferSize;
         size--;
 
@@ -48,7 +49,7 @@ public class CircularDBuffer {
         return d;
     }
 
-    public void put(double data) {
+    public void put(T data) {
         if (isFull())
             throw new IndexOutOfBoundsException("Buffer is full");
 
