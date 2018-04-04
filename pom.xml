@@ -8,7 +8,7 @@
     <packaging>jar</packaging>
 
     <name>ProducerConsumer</name>
-    <url>http://maven.apache.org</url>
+    <url>https://github.com/camja014/ProducerConsumer</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -24,6 +24,11 @@
     </dependencies>
 
     <build>
+
+        <defaultGoal>clean install</defaultGoal>
+        <directory>${basedir}/target</directory>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -34,6 +39,8 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
+
 </project>
