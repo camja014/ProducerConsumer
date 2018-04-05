@@ -5,16 +5,16 @@ package net.cackerman.samples.ProducerConsumer;
  */
 public class Main {
 
-    private static final long numIterations = 10000000; // 10 million iterations
+    private static final long NUM_ITERATIONS = 10000000; // 10 million iterations
 
     public static void main(String[] argv) {
         CircularBuffer<Double> circularBuffer = new CircularBuffer<>(Double.class);
 
         System.out.println("MAIN: Starting Producer...");
-        Thread producerThread = new Thread(new Producer(circularBuffer, numIterations));
+        Thread producerThread = new Thread(new Producer(circularBuffer, NUM_ITERATIONS));
 
         System.out.println("MAIN: Starting Consumer...");
-        Thread consumerThread = new Thread(new Consumer(circularBuffer, numIterations));
+        Thread consumerThread = new Thread(new Consumer(circularBuffer, NUM_ITERATIONS));
 
         producerThread.start();
         consumerThread.start();

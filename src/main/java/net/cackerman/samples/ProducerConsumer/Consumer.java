@@ -19,11 +19,11 @@ public class Consumer implements Runnable {
         // print the sums so we can compare with Producer.
         double sum = 0;
         for (int i = 0; i < iterations; i++) {
-
             try {
                 sum += consume();
-                if (i % 100000 == 0 && i != 0)
+                if (i % 100000 == 0 && i != 0) {
                     System.out.printf("CONSUMER  [iteration: %d]: Sum of consumed items = %f.\n", i, sum);
+                }
             } catch (InterruptedException e) {
                 System.err.println("CONSUMER [iteration: %d]: Interrupted!");
                 break;

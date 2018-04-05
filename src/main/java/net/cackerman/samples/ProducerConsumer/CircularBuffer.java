@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
  */
 public class CircularBuffer<T> {
 
-    public final int bufferSize;
+    final int bufferSize;
 
     T[] data;
 
@@ -33,9 +33,22 @@ public class CircularBuffer<T> {
         this.data = (T[]) Array.newInstance(tClass, bufferSize);
     }
 
+    public int size() {
+        return size;
+    }
+
+    public boolean isFull() {
+        return size == bufferSize;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
     public T get() {
-        if (isEmpty())
+        if (isEmpty()) {
             throw new NoSuchElementException("Buffer is empty");
+        }
 
         // retrieve element
         T d = data[start];
@@ -43,15 +56,17 @@ public class CircularBuffer<T> {
         size--;
 
         // if size is zero, reset start and end indices
-        if (isEmpty())
+        if (isEmpty()) {
             start = 0;
+        }
 
         return d;
     }
 
     public void put(T data) {
-        if (isFull())
+        if (isFull()) {
             throw new IndexOutOfBoundsException("Buffer is full");
+        }
 
         size++;
         this.data[getEnd()] = data;
@@ -60,17 +75,5 @@ public class CircularBuffer<T> {
     // Gets the next available space in the buffer.
     int getEnd() {
         return (start + (size - 1)) % bufferSize;
-    }
-
-    public int size() {
-        return size;
-    }
-
-    public boolean isFull() {
-        return size() == bufferSize;
-    }
-
-    public boolean isEmpty() {
-        return size() == 0;
     }
 }
