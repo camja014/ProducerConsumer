@@ -1,7 +1,7 @@
 package net.cackerman.samples.ProducerConsumer;
 
 /**
- * This was taken from a homework assignment where tasked with solving the producer/consumer problem.
+ * This was taken from a homework assignment where we were tasked with solving the producer/consumer problem.
  */
 public class Main {
 
