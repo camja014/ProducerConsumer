@@ -1,12 +1,14 @@
 # ProducerConsumer
 
+I have posted this as a small sample project to showcase some of my Java development experience.
+
 This is a refactored version of an assignment for an operating systems class that I took in 2016. The goal of the assignment was 
 to build a solution to the "Producer-Consumer" problem, in which you may have a system that produces more information 
 than can be consumed by the consumer system (or vice-versa).
 
 Our assignment requirements were to build a buffer, producer, and consumer classes. The producer and consumer systems 
 must each run in their own threads, operating on the same instance of the buffer object. The producer object had to 
-produce so many thousands of data elements, and the consumer had to consume all of those data points. Each system had
+produce so many thousands of data elements, and the consumer had to consume all of those elements. Each system had
 to sum the produced/consumed elements, and print the sum out to the console to show that both systems were operating as 
 they should.
 
