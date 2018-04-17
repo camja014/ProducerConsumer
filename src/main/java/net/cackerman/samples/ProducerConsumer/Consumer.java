@@ -41,7 +41,7 @@ public class Consumer implements Runnable {
 
             double item = buffer.get();
 
-            buffer.notify();
+            buffer.notifyAll();
 
             return item;
         }

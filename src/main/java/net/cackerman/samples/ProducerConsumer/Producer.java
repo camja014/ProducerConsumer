@@ -48,7 +48,7 @@ public class Producer implements Runnable {
 
             buffer.put(bufferElement);
 
-            buffer.notify();
+            buffer.notifyAll();
         }
     }
 }
