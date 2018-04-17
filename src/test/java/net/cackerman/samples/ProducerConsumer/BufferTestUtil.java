@@ -9,7 +9,7 @@ public class BufferTestUtil {
      *
      * @param buffer The buffer to fill
      */
-    static void fillBuffer(CircularDBuffer buffer) {
+    static void fillBuffer(CircularBuffer buffer) {
         Random random = new Random();
 
         for (int i = 0; i < buffer.bufferSize; i++) {
@@ -27,7 +27,7 @@ public class BufferTestUtil {
      * @param n      How many items to try adding to the buffer
      * @return number of items actually added to the buffer
      */
-    static int fillPartial(CircularDBuffer buffer, int n) {
+    static int fillPartial(CircularBuffer buffer, int n) {
         emptyBuffer(buffer);
 
         Random random = new Random();
@@ -49,8 +49,8 @@ public class BufferTestUtil {
      *
      * @param buffer the buffer to empty
      */
-    static void emptyBuffer(CircularDBuffer buffer) {
-        buffer.data = new double[buffer.bufferSize];
+    static void emptyBuffer(CircularBuffer buffer) {
+        buffer.data = new Double[buffer.bufferSize];
         buffer.size = 0;
         buffer.start = 0;
     }
@@ -61,7 +61,7 @@ public class BufferTestUtil {
      * @param buffer the buffer to remove elements from the back of
      * @param n      the number of elements to empty
      */
-    static void emptyPartial(CircularDBuffer buffer, int n) {
+    static void emptyPartial(CircularBuffer buffer, int n) {
         if (n >= buffer.size) buffer.size = 1;
         else buffer.size -= n;
     }

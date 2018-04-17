@@ -1,20 +1,20 @@
 package net.cackerman.samples.ProducerConsumer;
 
 /**
- * This was taken from a homework assignment where tasked with solving the producer/consumer problem.
+ * This was taken from a homework assignment where we were tasked with solving the producer/consumer problem.
  */
 public class Main {
 
-    private static final long numIterations = 10000000; // 10 million iterations
+    private static final long NUM_ITERATIONS = 10000000; // 10 million iterations
 
     public static void main(String[] argv) {
-        CircularDBuffer circularDBuffer = new CircularDBuffer();
+        CircularBuffer<Double> circularBuffer = new CircularBuffer<>(Double.class);
 
         System.out.println("MAIN: Starting Producer...");
-        Thread producerThread = new Thread(new Producer(circularDBuffer, numIterations));
+        Thread producerThread = new Thread(new Producer(circularBuffer, NUM_ITERATIONS));
 
         System.out.println("MAIN: Starting Consumer...");
-        Thread consumerThread = new Thread(new Consumer(circularDBuffer, numIterations));
+        Thread consumerThread = new Thread(new Consumer(circularBuffer, NUM_ITERATIONS));
 
         producerThread.start();
         consumerThread.start();

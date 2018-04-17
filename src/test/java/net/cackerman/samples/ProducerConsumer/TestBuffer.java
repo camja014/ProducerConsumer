@@ -10,19 +10,18 @@ import static org.junit.Assert.*;
 
 public class TestBuffer {
 
-    private CircularDBuffer buffer;
+    private CircularBuffer<Double> buffer;
     private Random random = new Random();
 
     @Before
     public void before() {
-        buffer = new CircularDBuffer();
+        buffer = new CircularBuffer<>(Double.class);
     }
 
     @Test
     public void testGet() {
         double testItem = random.nextDouble();
 
-        buffer = new CircularDBuffer();
         buffer.data[0] = testItem;
         buffer.size = 1;
         buffer.start = 0;

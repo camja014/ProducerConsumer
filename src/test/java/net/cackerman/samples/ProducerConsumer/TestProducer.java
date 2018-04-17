@@ -7,12 +7,12 @@ import static org.junit.Assert.assertEquals;
 
 public class TestProducer {
 
-    private CircularDBuffer buffer;
+    private CircularBuffer<Double> buffer;
     private final long iterations = 1000;
 
     @Before
     public void before() {
-        buffer = new CircularDBuffer();
+        buffer = new CircularBuffer<>(Double.class);
     }
 
     @Test

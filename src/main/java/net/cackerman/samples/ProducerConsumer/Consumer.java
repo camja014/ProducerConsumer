@@ -5,11 +5,11 @@ package net.cackerman.samples.ProducerConsumer;
  */
 public class Consumer implements Runnable {
 
-    private final CircularDBuffer buffer;
+    private final CircularBuffer<Double> buffer;
     private final long iterations;
 
-    public Consumer(CircularDBuffer circularDBuffer, long iterations) {
-        this.buffer = circularDBuffer;
+    public Consumer(CircularBuffer<Double> circularBuffer, long iterations) {
+        this.buffer = circularBuffer;
         this.iterations = iterations;
     }
 
@@ -19,11 +19,11 @@ public class Consumer implements Runnable {
         // print the sums so we can compare with Producer.
         double sum = 0;
         for (int i = 0; i < iterations; i++) {
-
             try {
                 sum += consume();
-                if (i % 100000 == 0 && i != 0)
+                if (i % 100000 == 0 && i != 0) {
                     System.out.printf("CONSUMER  [iteration: %d]: Sum of consumed items = %f.\n", i, sum);
+                }
             } catch (InterruptedException e) {
                 System.err.println("CONSUMER [iteration: %d]: Interrupted!");
                 break;
