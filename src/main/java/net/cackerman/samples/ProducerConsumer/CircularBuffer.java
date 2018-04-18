@@ -16,12 +16,7 @@ public class CircularBuffer<T> {
     int size;
 
     public CircularBuffer(Class<T> tClass) {
-        bufferSize = 1000;
-
-        this.start = 0;
-        this.size = 0;
-
-        this.data = (T[]) Array.newInstance(tClass, bufferSize);
+        this(tClass, 1000);
     }
 
     public CircularBuffer(Class<T> tClass, int bufferSize) {
